@@ -23,13 +23,18 @@ public static class Harmony_TryUnassignPawn {
             }
         }
         foreach (Pawn pawnToLeave in __instance.AssignedPawnsForReading.ToList().Except(pawnListMax)) {
-            Messages.Message("PawnNoLongerAssignableToBed".Translate(pawnToLeave, pawn), pawnToLeave, MessageTypeDefOf.NegativeEvent, historical: true);
-            __instance.TryUnassignPawn(pawnToLeave);
+            // Try to associate each leaving pawn with the lover who is currently leaving, also skip already removed pawns
+            if (__instance.AssignedPawnsForReading.Contains(pawnToLeave) && BedUtility.WillingToShareBed(pawn, pawnToLeave)) {
+                Messages.Message("PawnNoLongerAssignableToBed".Translate(pawnToLeave, pawn), pawnToLeave, MessageTypeDefOf.NegativeEvent, historical: true);
+                __instance.TryUnassignPawn(pawnToLeave);
+            }
         }
-            /*if (__instance.IdeoligionForbids(occupant)) {
-                Messages.Message("PawnNoLongerAssignableToBed".Translate(occupant, pawn), occupant, MessageTypeDefOf.NegativeEvent, historical: true);
-                __instance.TryUnassignPawn(occupant);
-            }*/
+        // Catch-all removal for illegal assignments in case something went wrong
+        foreach (Pawn pawnToLeave in __instance.AssignedPawnsForReading.ToList().Except(pawnListMax)) {
+            if (__instance.AssignedPawnsForReading.Contains(pawnToLeave)) {
+                __instance.TryUnassignPawn(pawnToLeave);
+            }
+        }
     }
 
     // Returns the largest unbroken network of love relations within pawnList that contains pawn
