@@ -93,6 +93,7 @@
         <Compile Include="Source/HarmonyPatches/Harmony_GetMostDislikedNonPartnerBedOwner.cs" />
         <Compile Include="Source/HarmonyPatches/Harmony_IdeoligionForbids.cs" />
         <Compile Include="Source/HarmonyPatches/Harmony_SecondaryRomanceChanceFactor.cs" />
+        <Compile Include="Source/HarmonyPatches/Harmony_SortAssignedPawns.cs" />
         <Compile Include="Source/HarmonyPatches/Harmony_TryUnassignPawn.cs" />
     </ItemGroup>
 
