@@ -6,9 +6,7 @@
 	<li>1.3</li>
 	</supportedVersions>
 	<packageId>SIC.Ideology.CoSpousalRelations</packageId>
-	<description>Adds an implied relationship between people in marriage to the same person, and removes the mood penalty for sharing a bed so long as their mutual spouse is present. 
-	Also allows Co-Spoouses to share a bed even with the "Spouse Only: Strict" Physical Love precept from Ideology, and adds a slightly boosted chance to explore their own romantic potential.
-	Tested with Polyamory Beds Vanilla Edition, Royalty and Ideology.</description>
+	<description>Adds an implied relationship between people in marriage to the same person, which removes the mood penalty for sharing a bed so long as their mutual spouse is present. It also allows Co-Spoouses to share a bed even with the "Spouse Only: Strict" Physical Love precept from Ideology activated, and adds a slightly boosted chance to explore their own romantic potential. Also changes the way that beds are sorted in order to make pawns actually sleep as close to their partners as possible when sharing larger beds.</description>
   	<modDependencies>
 	  	<li>
   			<packageId>brrainz.harmony</packageId>
