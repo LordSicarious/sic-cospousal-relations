@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <!-- Unassign Pawns from Bed when Spouse is Unassigned -->
+    <PawnNoLongerAssignableToBed>{0_labelShort} is no longer willing to sleep in their old bed now that {1_labelShort} has left.</PawnNoLongerAssignableToBed>
+</LanguageData>
