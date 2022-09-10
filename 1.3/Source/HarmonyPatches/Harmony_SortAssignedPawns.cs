@@ -30,7 +30,8 @@ public static class Harmony_SortAssignedPawns {
             for (int i = 0; i < pawnCount; i++) {
                 sumPartnerDistance[pawnList[i]] = 0;
                 for (int j = 0; j < i; j++) {
-                    if(BedUtility.WillingToShareBed(pawnList[i], pawnList[j])) {
+                    // Need to check Love Partner Relation Utility as well because Free Love Ideologies are willing to sleep with anyone
+                    if(BedUtility.WillingToShareBed(pawnList[i], pawnList[j]) && LovePartnerRelationUtility.LovePartnerRelationExists(pawnList[i], pawnList[j])) {
                         sumPartnerDistance[pawnList[i]] += i - j;
                         sumPartnerDistance[pawnList[j]] += i - j;
                     }
@@ -55,13 +56,13 @@ public static class Harmony_SortAssignedPawns {
     }
 
     // Scores an arrangement of pawns based on the total distance between pawns willing to sleep with each other
-    private static int ScoreArrangement(List<Pawn> pawns) {
+    private static int ScoreArrangement(List<Pawn> pawnList) {
         // Make a quick lookup array 
         int score = 0;
-        int pawnCount = pawns.Count();
+        int pawnCount = pawnList.Count();
         for (int i = 0; i < pawnCount; i++) {
             for (int j = 0; j < i; j++) {
-                if(BedUtility.WillingToShareBed(pawns[i], pawns[j])) {
+                if(BedUtility.WillingToShareBed(pawnList[i], pawnList[j]) && LovePartnerRelationUtility.LovePartnerRelationExists(pawnList[i], pawnList[j])) {
                     score += i - j;
                 }
             }
